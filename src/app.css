@@ -1,0 +1,56 @@
+/* src/App.css */
+.container {
+  @apply max-w-4xl mx-auto p-4;
+}
+
+h1 {
+  @apply text-3xl font-bold text-center mb-6 text-gray-800;
+}
+
+h2 {
+  @apply text-2xl font-semibold mb-4 text-gray-700;
+}
+
+form {
+  @apply bg-white p-6 rounded-lg shadow-md mb-6;
+}
+
+label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+input, select {
+  @apply w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition;
+}
+
+.goal-card {
+  @apply bg-white p-4 rounded-lg shadow-md mb-4;
+}
+
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-4 overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-green-500 transition-all duration-300;
+}
+
+.alert {
+  @apply text-sm font-medium p-2 rounded-md;
+}
+
+.alert-overdue {
+  @apply bg-red-100 text-red-700;
+}
+
+.alert-warning {
+  @apply bg-orange-100 text-orange-700;
+}
+
+.alert-completed {
+  @apply bg-green-100 text-green-700;
+}
