@@ -96,4 +96,11 @@ const GoalItem = ({ goal, onDelete, onUpdate }) => {
             <button onClick={() => onDelete(goal.id)} className="bg-red-500 hover:bg-red-600">
               Delete
             </button>
-          </ Facet: {isEditing, handleEdit, setIsEditing} = useState(false);
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default GoalItem;
