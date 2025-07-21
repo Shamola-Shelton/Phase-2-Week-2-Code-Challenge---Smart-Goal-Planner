@@ -26,37 +26,74 @@ const GoalItem = ({ goal, onDelete, onUpdate }) => {
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+    <div className="goal-card">
       {isEditing ? (
-        <form onSubmit={handleEdit}>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-          <input type="number" value={targetAmount} onChange={(e) => setTargetAmount(e.target.value)} required />
-          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
-          <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} required />
-          <button type="submit">Save</button>
-          <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
+        <form className="space-y-4" onSubmit={handleEdit}>
+          <div>
+            <label>Name:</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="input"
+            />
+          </div>
+          <div>
+            <label>Target Amount:</label>
+            <input
+              type="number"
+              value={targetAmount}
+              onChange={(e) => setTargetAmount(e.target.value)}
+              required
+              className="input"
+            />
+          </div>
+          <div>
+            <label>Category:</label>
+            <input
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+              className="input"
+            />
+          </div>
+          <div>
+            <label>Deadline:</label>
+            <input
+              type="date"
+              value={deadline}
+              onChange={(e) => setDeadline(e.target.value)}
+              required
+              className="input"
+            />
+          </div>
+          <div className="flex space-x-2">
+            <button type="submit">Save</button>
+            <button type="button" onClick={() => setIsEditing(false)} className="bg-gray-500 hover:bg-gray-600">
+              Cancel
+            </button>
+          </div>
         </form>
       ) : (
         <div>
-          <h3>{goal.name}</h3>
-          <p>Category: {goal.category}</p>
-          <p>Target: ${goal.targetAmount}</p>
-          <p>Saved: ${goal.savedAmount}</p>
-          <p>Remaining: ${remaining > 0 ? remaining : 0}</p>
-          <div style={{ width: '100%', background: '#ddd', height: '20px' }}>
-            <div style={{ width: `${progress}%`, background: 'green', height: '20px' }}></div>
+          <h3 className="text-lg font-medium text-gray-800">{goal.name}</h3>
+          <p className="text-gray-600">Category: {goal.category}</p>
+          <p className="text-gray-600">Target: ${goal.targetAmount}</p>
+          <p className="text-gray-600">Saved: ${goal.savedAmount}</p>
+          <p className="text-gray-600">Remaining: ${remaining > 0 ? remaining : 0}</p>
+          <div className="progress-bar">
+            <div className="progress-bar-fill" style={{ width: `${progress}%` }}></div>
           </div>
-          <p>Deadline: {goal.deadline}</p>
-          <p>Days Left: {daysLeft >= 0 ? daysLeft : 'Overdue'}</p>
-          {isOverdue && <p style={{ color: 'red' }}>Overdue!</p>}
-          {isWarning && <p style={{ color: 'orange' }}>Warning: Less than 30 days left!</p>}
-          {isCompleted && <p style={{ color: 'green' }}>Completed!</p>}
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => onDelete(goal.id)}>Delete</button>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default GoalItem;
+          <p className="text-gray-600">Deadline: {goal.deadline}</p>
+          <p className="text-gray-600">Days Left: {daysLeft >= 0 ? daysLeft : 'Overdue'}</p>
+          {isOverdue && <p className="alert alert-overdue">Overdue!</p>}
+          {isWarning && <p className="alert alert-warning">Warning: Less than 30 days left!</p>}
+          {isCompleted && <p className="alert alert-completed">Completed!</p>}
+          <div className="flex space-x-2 mt-2">
+            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button onClick={() => onDelete(goal.id)} className="bg-red-500 hover:bg-red-600">
+              Delete
+            </button>
+          </ Facet: {isEditing, handleEdit, setIsEditing} = useState(false);
