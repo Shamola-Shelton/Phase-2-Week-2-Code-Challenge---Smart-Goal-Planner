@@ -89,6 +89,15 @@
       "category": "Home",
       "deadline": "2025-03-31",
       "createdAt": "2024-05-15"
+    },
+    {
+      "id": "603d",
+      "name": "shelton",
+      "targetAmount": 200000,
+      "savedAmount": 0,
+      "category": "saving",
+      "deadline": "2025-07-16",
+      "createdAt": "2025-07-21"
     }
   ]
 }

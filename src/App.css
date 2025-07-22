@@ -1,56 +1,186 @@
-/* src/App.css */
 .container {
-  @apply max-w-4xl mx-auto p-4;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2.5rem;
+  }
 }
 
 h1 {
-  @apply text-3xl font-bold text-center mb-6 text-gray-800;
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 h2 {
-  @apply text-2xl font-semibold mb-4 text-gray-700;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
-form {
-  @apply bg-white p-6 rounded-lg shadow-md mb-6;
+@media (min-width: 640px) {
+  h2 {
+    font-size: 1.875rem;
+  }
 }
 
-label {
-  @apply block text-sm font-medium text-gray-700 mb-2;
-}
-
-input, select {
-  @apply w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500;
-}
-
-button {
-  @apply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition;
+.overview {
+  background: linear-gradient(to right, #eff6ff, #e0e7ff);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
 }
 
 .goal-card {
-  @apply bg-white p-4 rounded-lg shadow-md mb-4;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease;
+}
+
+.goal-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .progress-bar {
-  @apply w-full bg-gray-200 rounded-full h-4 overflow-hidden;
+  width: 100%;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  height: 1.25rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
 }
 
 .progress-bar-fill {
-  @apply h-full bg-green-500 transition-all duration-300;
+  background: linear-gradient(to right, #4ade80, #16a34a);
+  height: 1.25rem;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+select.input {
+  appearance: none;
+  background-color: #ffffff;
+}
+
+button {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+button.bg-gray-500 {
+  background-color: #6b7280;
+}
+
+button.bg-gray-500:hover {
+  background-color: #4b5563;
+}
+
+button.bg-red-500 {
+  background-color: #dc2626;
+}
+
+button.bg-red-500:hover {
+  background-color: #b91c1c;
 }
 
 .alert {
-  @apply text-sm font-medium p-2 rounded-md;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .alert-overdue {
-  @apply bg-red-100 text-red-700;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
 }
 
 .alert-warning {
-  @apply bg-orange-100 text-orange-700;
+  background-color: #ffedd5;
+  color: #c2410c;
+  border-left: 4px solid #f97316;
 }
 
 .alert-completed {
-  @apply bg-green-100 text-green-700;
+  background-color: #dcfce7;
+  color: #166534;
+  border-left: 4px solid #22c55e;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.flex.space-x-2 {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  font-weight: 500;
 }

@@ -47,7 +47,9 @@ function App() {
 
   const deleteGoal = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3002/goals/${id}`, { method: 'DELETE' });
+      const res = await fetch(`http://localhost:3002/goals/${id}`, {
+        method: 'DELETE'
+      });
       if (!res.ok) throw new Error('Failed to delete goal');
       setGoals(goals.filter((goal) => goal.id !== id));
     } catch (error) {
@@ -85,7 +87,7 @@ function App() {
   }
 
   if (error) {
-    return <div className="container text-red-500">{error}</div>;
+    return <div className="container text-red-500">Error: {error}</div>;
   }
 
   return (
